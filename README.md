@@ -1,5 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/lksvukgnxru6smx7?svg=true)](https://ci.appveyor.com/project/donecvolsk/working-with-files-dnd)
 
+https://ci.appveyor.com/api/github/webhook?id=50vgsicngs5gx4sc
+
 # Домашнее задание к занятию "6. Работа с файлами, DnD"
 
 Правила сдачи задания:
