@@ -1,3 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 body {
     color: #999;
 }
+
+.documentTitle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .columsContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /*width: 100%;*/
+    margin: 0 5%;
+  }
+
+  .colum {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    background: #fff2e1;
+    /*margin: 5%;*/
+    padding: 1%;
+    border: 1px solid black;
+  }
+
+  .columTitle {
+    color: black;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+  
+  }
+
+  .cardItem {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid black;
+    background-color: azure;   
+    word-break:break-all;
+    margin-bottom: 10px;
+  }
+
+  .textarea {
+    width: 100%;
+  }
+
+  .creatingCards {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .creatingCards_add {
+    width: 40%;
+  }
+
+  .cross {
+    background-color: blue;
+    align-self: flex-end;
+    width: 10%;
+    height: 10%;
+    align-items: center;
+    background-color: azure;
+    border: none;
+    color: red;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .opac {
+    opacity: 5%;
+  }

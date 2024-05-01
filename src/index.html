@@ -6,8 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-<h1>Hello, from Netology!</h1>
-<img src="img/netology.svg" alt="Netology Logo">
+  <h1 class="documentTitle">Система управления задачами</h1>
+  <div class="container">
+    <div class="columsContainer">
+      <div class="colum">
+        <div class="columTitle">
+          <h3>TODO</h3>
+        </div>
+        <div class="cards cards_todo">
+
+        </div>
+        <div class="creatingCards">
+          <span id="todo" class="creatingCards_new creatingCards_new_todo">+ Add another card</span>
+          <button class="creatingCards_add creatingCards_add_todo hidden">Add card</button>
+        </div>
+      </div>
+     
+      <div class="colum">
+        <div class="columTitle">
+          <h3>IN PROGRESS</h3>
+        </div>
+        <div class="cards cards_progress">
+
+        </div>
+        <div class="creatingCards">
+          <span id="progress" class="creatingCards_new creatingCards_new_progress">+ Add another card</span>
+          <button class="creatingCards_add creatingCards_add_progress hidden">Add card</button>
+        </div>
+      </div>
+
+      <div class="colum">
+        <div class="columTitle">
+          <h3>DONE</h3>
+        </div>
+        <div class="cards cards_done">
+ 
+        </div>
+        <div class="creatingCards">
+          <span id="done" class="creatingCards_new creatingCards_new_done ">+ Add another card</span>
+          <button class="creatingCards_add creatingCards_add_done hidden">Add card</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
