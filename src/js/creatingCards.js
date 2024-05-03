@@ -9,7 +9,8 @@ export default class CreatingCards {
     this.textarea = document.createElement("textarea");
     this.textarea.classList.add('textarea');
 
-    this.card = document.createElement("div"); 
+    this.card = document.createElement("div");
+    //this.card.setAttribute("draggable", "true"); 
 
     this.cross = document.createElement("button");
     this.cross.classList.add("cross");
@@ -40,6 +41,44 @@ export default class CreatingCards {
       this.textarea.value = null; //обнуление значения textarea
       this.textarea.remove(); //удаление textarea
       this.creatingCards_add.classList.toggle("hidden"); //скрытие кнопки Add card
+
+      /*___перетаскивание карточек___
+      this.card.addEventListener(`dragstart`, (evt) => {
+        evt.target.classList.add(`selected`);
+      })
+
+      this.card.addEventListener(`dragend`, (evt) => {
+        evt.target.classList.remove(`selected`);
+      });
+
+      this.card.addEventListener(`dragover`, (evt) => {
+      // Разрешаем сбрасывать элементы в эту область
+      evt.preventDefault();
+
+      // Находим перемещаемый элемент
+      const activeElement = this.card.querySelector(`.selected`);
+      // Находим элемент, над которым в данный момент находится курсор
+      const currentElement = evt.target;
+      // Проверяем, что событие сработало:
+      // 1. не на том элементе, который мы перемещаем,
+      // 2. именно на элементе списка
+      const isMoveable = activeElement !== currentElement &&
+      currentElement.classList.contains(`cards`);
+
+      // Если нет, прерываем выполнение функции
+      if (!isMoveable) {
+        return;
+      }
+
+      // Находим элемент, перед которым будем вставлять
+      const nextElement = (currentElement === activeElement.nextElementSibling) ?
+          currentElement.nextElementSibling :
+          currentElement;
+
+      // Вставляем activeElement перед nextElement
+       this.card.insertBefore(activeElement, nextElement);
+      })*/
+      
     });
 
     //удаление карточки крестиком
@@ -49,3 +88,5 @@ export default class CreatingCards {
     });
   }
 }
+
+

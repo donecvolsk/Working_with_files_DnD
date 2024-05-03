@@ -3,6 +3,7 @@ import draggingAndDropping from "./draggingAndDropping"
 const columsContainer = document.querySelector(".columsContainer");
 
 
+
 // события клика на кнопку + Add another card, и передача параметра "кнопка" в класс creatingCards
 columsContainer.addEventListener("click", (event) => { 
   const element = event.target;
@@ -15,7 +16,8 @@ columsContainer.addEventListener("click", (event) => {
   } 
 
   if(element.classList.contains("cardItem")) {
-    new draggingAndDropping(element);
-    console.log('Тащи');
+    new draggingAndDropping();
   }
 });
+
+

@@ -52,7 +52,7 @@ body {
   }
 
   .cardItem {
-    width: 95%;
+    width: 360px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -60,6 +60,8 @@ body {
     background-color: azure;   
     word-break:break-all;
     margin-bottom: 10px;
+    cursor: move;
+    color: black;
   }
 
   .textarea {
@@ -91,6 +93,6 @@ body {
     display: none;
   }
 
-  .opac {
-    opacity: 5%;
+  .selected {
+    opacity: 0.6;
   }
