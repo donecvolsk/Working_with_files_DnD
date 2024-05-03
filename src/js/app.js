@@ -16,7 +16,7 @@ columsContainer.addEventListener("click", (event) => {
   } 
 
   if(element.classList.contains("cardItem")) {
-    new draggingAndDropping();
+    draggingAndDropping();
   }
 });
 

@@ -1,9 +1,66 @@
+export default function draggingAndDropping() {
+  const tasksListElement = document.querySelector(`.cards`);
+  const taskElements = tasksListElement.querySelectorAll(`.cardItem`);
+
+for (const task of taskElements) {
+  task.draggable = true;
+}
+
+tasksListElement.addEventListener(`dragstart`, (evt) => {
+  evt.target.classList.add(`selected`);
+});
+
+tasksListElement.addEventListener(`dragend`, (evt) => {
+  evt.target.classList.remove(`selected`);
+});
+
+const getNextElement = (cursorPosition, currentElement) => {
+  const currentElementCoord = currentElement.getBoundingClientRect();
+  const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+
+   // Пока поставим заглушку
+   const nextElement = (cursorPosition < currentElementCenter) ?
+    currentElement :
+    currentElement.nextElementSibling;
+  
+   return nextElement;
+};
+
+tasksListElement.addEventListener(`dragover`, (evt) => {
+  evt.preventDefault();
+  const activeElement = tasksListElement.querySelector(`.selected`);
+  const currentElement = evt.target;
+  const isMoveable = activeElement !== currentElement && currentElement.classList.contains(`cardItem`);
+  
+  if (!isMoveable) {
+    return;
+  }
+
+  const nextElement = getNextElement(evt.clientY, currentElement);
+  
+  if (
+    nextElement && 
+    activeElement === nextElement.previousElementSibling ||
+    activeElement === nextElement
+  ) {
+    return;
+  }
+
+  /*const nextElement = (currentElement === activeElement.nextElementSibling) ?
+  currentElement.nextElementSibling :
+  currentElement;*/
+
+  tasksListElement.insertBefore(activeElement, nextElement);
+});
+  //console.log("draggingAndDropping");
+}
 
 
-export default class DraggingAndDropping{
+/*export default class DraggingAndDropping{
     constructor() {
-      this.tasksListElement = document.querySelector(`.columsContainer`);
-       this.taskElements = this.tasksListElement.querySelectorAll(`.cardItem`);
+      this.tasksListElement = document.querySelector(`.colum`);
+      //this.tasksListElement = document.querySelector(`.columsContainer`);
+      this.taskElements = this.tasksListElement.querySelectorAll(`.cardItem`);
 
       // Перебираем все элементы списка и присваиваем нужное значение
       for (const task of this.taskElements) {
@@ -47,6 +104,6 @@ export default class DraggingAndDropping{
       });
   }
 
-}
+}*/
 
     
