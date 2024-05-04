@@ -1,5 +1,7 @@
 export default function draggingAndDropping() {
+  
   const tasksListElement = document.querySelector(`.cards`);
+  
   const taskElements = tasksListElement.querySelectorAll(`.cardItem`);
 
   for (const task of taskElements) {

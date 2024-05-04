@@ -52,6 +52,7 @@ body {
   }
 
   .cardItem {
+    margin-top: 20px;
     width: 360px;
     display: flex;
     flex-direction: column;
@@ -62,6 +63,7 @@ body {
     margin-bottom: 10px;
     cursor: move;
     color: black;
+    position: relative;
   }
 
   .textarea {
@@ -87,6 +89,9 @@ body {
     background-color: azure;
     border: none;
     color: red;
+    position: absolute;
+    right: 0px;
+    top: -15px;
   }
 
   .hidden {
