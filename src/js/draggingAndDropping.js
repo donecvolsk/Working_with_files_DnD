@@ -1,9 +1,11 @@
+import saveLS from "./saveLS";
+
 export default function draggingAndDropping() {
   const tasksListElement = document.querySelectorAll(`.cards`);
 
   tasksListElement.forEach((elem) => {
     const taskElements = elem.querySelectorAll(`.cardItem`);
-    taskElements.forEach((el) => {});
+    
     for (const task of taskElements) {
       task.draggable = true;
     }
@@ -52,5 +54,6 @@ export default function draggingAndDropping() {
       //elem.insertAdjacentHTML('beforeend', activeElement);
       elem.insertBefore(activeElement, nextElement);
     });
+    //saveLS();
   });
 }

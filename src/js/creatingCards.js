@@ -1,5 +1,6 @@
 import draggingAndDropping from "./draggingAndDropping";
 
+
 export default class CreatingCards {
   constructor(identificator) {
     this.identificator = identificator;

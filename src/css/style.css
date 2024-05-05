@@ -48,16 +48,21 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-  
+    min-height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
   }
 
   .cardItem {
     margin-top: 20px;
-    width: 360px;
+    width: 95%;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border: 1px solid black;
+    border-radius: 3px;
     background-color: azure;   
     word-break:break-all;
     margin-bottom: 10px;
@@ -67,17 +72,19 @@ body {
   }
 
   .textarea {
-    width: 100%;
+    width: 95%;
   }
 
   .creatingCards {
     width: 95%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
   }
 
   .creatingCards_add {
     width: 40%;
+    cursor: pointer;
   }
 
   .cross {
@@ -92,6 +99,7 @@ body {
     position: absolute;
     right: 0px;
     top: -15px;
+    cursor: pointer;
   }
 
   .hidden {
