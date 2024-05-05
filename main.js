@@ -3,11 +3,11 @@
 var __webpack_exports__ = {};
 
 ;// CONCATENATED MODULE: ./src/js/draggingAndDropping.js
+
 function draggingAndDropping() {
   const tasksListElement = document.querySelectorAll(`.cards`);
   tasksListElement.forEach(elem => {
     const taskElements = elem.querySelectorAll(`.cardItem`);
-    taskElements.forEach(el => {});
     for (const task of taskElements) {
       task.draggable = true;
     }
@@ -38,6 +38,7 @@ function draggingAndDropping() {
       //elem.insertAdjacentHTML('beforeend', activeElement);
       elem.insertBefore(activeElement, nextElement);
     });
+    //saveLS();
   });
 }
 ;// CONCATENATED MODULE: ./src/js/creatingCards.js
@@ -92,9 +93,7 @@ class CreatingCards {
 }
 ;// CONCATENATED MODULE: ./src/js/app.js
 
-
 const creatingCards_new = document.querySelectorAll(".creatingCards_new");
-const cardCollection = document.querySelectorAll(".cardItem");
 for (let elem of creatingCards_new) {
   elem.addEventListener("click", event => {
     const element = event.target;
