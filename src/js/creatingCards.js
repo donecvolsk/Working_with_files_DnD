@@ -5,8 +5,12 @@ export default class CreatingCards {
     this.identificator = identificator;
     this.a = document.querySelectorAll(".creatingCards_new");
     this.cards = document.querySelector(".cards_" + this.identificator);
-    this.creatingCards_new = document.querySelector(".creatingCards_new" + this.identificator);
-    this.creatingCards_add = document.querySelector(".creatingCards_add_" + this.identificator);
+    this.creatingCards_new = document.querySelector(
+      ".creatingCards_new" + this.identificator,
+    );
+    this.creatingCards_add = document.querySelector(
+      ".creatingCards_add_" + this.identificator,
+    );
 
     this.textarea = document.createElement("textarea");
     this.textarea.classList.add("textarea");
@@ -49,8 +53,8 @@ export default class CreatingCards {
 
     //удаление карточки крестиком
     this.cross.addEventListener("click", () => {
-      this.card.classList.add("hidden");
-      this.cross.classList.add("hidden");
+      this.card.remove();
+      this.cross.remove();
     });
   }
 }

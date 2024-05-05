@@ -1,58 +1,56 @@
 export default function draggingAndDropping() {
-  
-  const tasksListElement = document.querySelector(`.cards`);
-  
-  const taskElements = tasksListElement.querySelectorAll(`.cardItem`);
+  const tasksListElement = document.querySelectorAll(`.cards`);
 
-  for (const task of taskElements) {
-    task.draggable = true;
-  }
-
-  tasksListElement.addEventListener(`dragstart`, (evt) => {
-    evt.target.classList.add(`selected`);
-  });
-
-  tasksListElement.addEventListener(`dragend`, (evt) => {
-    evt.target.classList.remove(`selected`);
-  });
-
-  const getNextElement = (cursorPosition, currentElement) => {
-    const currentElementCoord = currentElement.getBoundingClientRect();
-    const currentElementCenter =
-      currentElementCoord.y + currentElementCoord.height / 2;
-
-    const nextElement =
-      cursorPosition < currentElementCenter
-        ? currentElement
-        : currentElement.nextElementSibling;
-
-    return nextElement;
-  };
-
-  tasksListElement.addEventListener(`dragover`, (evt) => {
-    evt.preventDefault();
-    const activeElement = tasksListElement.querySelector(`.selected`);
-    const currentElement = evt.target;
-    const isMoveable =
-      activeElement !== currentElement &&
-      currentElement.classList.contains(`cardItem`);
-
-    if (!isMoveable) {
-      return;
+  tasksListElement.forEach((elem) => {
+    const taskElements = elem.querySelectorAll(`.cardItem`);
+    taskElements.forEach((el) => {});
+    for (const task of taskElements) {
+      task.draggable = true;
     }
 
-    const nextElement = getNextElement(evt.clientY, currentElement);
+    elem.addEventListener(`dragstart`, (evt) => {
+      evt.target.classList.add(`selected`);
+    });
 
-    if (
-      (nextElement && activeElement === nextElement.previousElementSibling) ||
-      activeElement === nextElement
-    ) {
-      return;
-    }
+    elem.addEventListener(`dragend`, (evt) => {
+      evt.target.classList.remove(`selected`);
+    });
 
-    tasksListElement.insertBefore(activeElement, nextElement);
+    const getNextElement = (cursorPosition, currentElement) => {
+      const currentElementCoord = currentElement.getBoundingClientRect();
+      const currentElementCenter =
+        currentElementCoord.y + currentElementCoord.height / 2;
+
+      const nextElement =
+        cursorPosition < currentElementCenter
+          ? currentElement
+          : currentElement.nextElementSibling;
+
+      return nextElement;
+    };
+
+    elem.addEventListener(`dragover`, (evt) => {
+      evt.preventDefault();
+      const activeElement = elem.querySelector(`.selected`);
+      const currentElement = evt.target;
+      const isMoveable =
+        activeElement !== currentElement &&
+        currentElement.classList.contains(`cardItem`);
+
+      if (!isMoveable) {
+        return;
+      }
+
+      const nextElement = getNextElement(evt.clientY, currentElement);
+
+      if (
+        (nextElement && activeElement === nextElement.previousElementSibling) ||
+        activeElement === nextElement
+      ) {
+        return;
+      }
+      //elem.insertAdjacentHTML('beforeend', activeElement);
+      elem.insertBefore(activeElement, nextElement);
+    });
   });
-
 }
-
-
