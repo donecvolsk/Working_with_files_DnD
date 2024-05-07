@@ -1,4 +1,5 @@
 import saveLS from "./saveLS";
+import remuveCard from "./remuveCard";
 
 export default function draggingAndDropping() {
   const tasksListElement = document.querySelectorAll(`.cards`);
@@ -51,9 +52,8 @@ export default function draggingAndDropping() {
       ) {
         return;
       }
-      //elem.insertAdjacentHTML('beforeend', activeElement);
       elem.insertBefore(activeElement, nextElement);
     });
-    //saveLS();
+    remuveCard();
   });
 }

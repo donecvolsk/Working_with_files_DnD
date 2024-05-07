@@ -1,5 +1,6 @@
-//export default function saveLS() {
-    //var htmlContents = document.documentElement.innerHTML;
-    //localStorage.setItem('mydocument', JSON.stringify(htmlContents ));
-    //console.log("LSok");
-//}
+export default function saveLS() {
+    const itemColum1LS = document.querySelector('#colum1').innerHTML
+   
+ localStorage.setItem('Colum1', JSON.stringify(itemColum1LS));
+}
+

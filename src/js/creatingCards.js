@@ -1,5 +1,6 @@
 import draggingAndDropping from "./draggingAndDropping";
-
+import saveLS from "./saveLS";
+import remuveCard from "./remuveCard";
 
 export default class CreatingCards {
   constructor(identificator) {
@@ -17,7 +18,6 @@ export default class CreatingCards {
     this.textarea.classList.add("textarea");
 
     this.card = document.createElement("div");
-    //this.card.setAttribute("draggable", "true");
 
     this.cross = document.createElement("button");
     this.cross.classList.add("cross");
@@ -46,16 +46,13 @@ export default class CreatingCards {
       this.card.textContent += this.value; //добавление значения из переменной в контент карточки
       this.card.append(this.cross); //добавление крестика в документ
       this.cards.append(this.card); //добавление карточки в документ
+      //saveLS();
       this.textarea.value = null; //обнуление значения textarea
       this.textarea.remove(); //удаление textarea
       this.creatingCards_add.classList.toggle("hidden"); //скрытие кнопки Add card
       draggingAndDropping();
     });
 
-    //удаление карточки крестиком
-    this.cross.addEventListener("click", () => {
-      this.card.remove();
-      this.cross.remove();
-    });
   }
+
 }
