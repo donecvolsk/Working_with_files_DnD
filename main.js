@@ -2,7 +2,20 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
+;// CONCATENATED MODULE: ./src/js/remuveCard.js
+function remuveCard() {
+  const cardDelete = document.querySelectorAll('.cardItem');
+  cardDelete.forEach(el => {
+    el.addEventListener('click', event => {
+      let evt = event.target;
+      if (evt.classList.contains('cross')) {
+        el.remove();
+      }
+    });
+  });
+}
 ;// CONCATENATED MODULE: ./src/js/draggingAndDropping.js
+
 
 function draggingAndDropping() {
   const tasksListElement = document.querySelectorAll(`.cards`);
@@ -35,13 +48,14 @@ function draggingAndDropping() {
       if (nextElement && activeElement === nextElement.previousElementSibling || activeElement === nextElement) {
         return;
       }
-      //elem.insertAdjacentHTML('beforeend', activeElement);
       elem.insertBefore(activeElement, nextElement);
     });
-    //saveLS();
+    remuveCard();
   });
 }
 ;// CONCATENATED MODULE: ./src/js/creatingCards.js
+
+
 
 class CreatingCards {
   constructor(identificator) {
@@ -53,8 +67,6 @@ class CreatingCards {
     this.textarea = document.createElement("textarea");
     this.textarea.classList.add("textarea");
     this.card = document.createElement("div");
-    //this.card.setAttribute("draggable", "true");
-
     this.cross = document.createElement("button");
     this.cross.classList.add("cross");
     this.cards.append(this.textarea);
@@ -78,21 +90,34 @@ class CreatingCards {
       this.card.textContent += this.value; //добавление значения из переменной в контент карточки
       this.card.append(this.cross); //добавление крестика в документ
       this.cards.append(this.card); //добавление карточки в документ
+      //saveLS();
       this.textarea.value = null; //обнуление значения textarea
       this.textarea.remove(); //удаление textarea
       this.creatingCards_add.classList.toggle("hidden"); //скрытие кнопки Add card
       draggingAndDropping();
     });
-
-    //удаление карточки крестиком
-    this.cross.addEventListener("click", () => {
-      this.card.remove();
-      this.cross.remove();
-    });
   }
+}
+;// CONCATENATED MODULE: ./src/js/saveLS.js
+function saveLS() {
+  const itemColum1LS = document.querySelector('#colum1').innerHTML;
+  localStorage.setItem('Colum1', JSON.stringify(itemColum1LS));
 }
 ;// CONCATENATED MODULE: ./src/js/app.js
 
+
+
+window.addEventListener('load', function () {
+  let itemColum1LS = document.querySelector('#colum1');
+  let itemColumS1 = JSON.parse(window.localStorage.getItem('Colum1'));
+  let cardLS = document.createElement('div');
+  cardLS.innerHTML = itemColumS1;
+  itemColum1LS.insertAdjacentHTML('afterBegin', cardLS.innerHTML);
+  draggingAndDropping();
+});
+window.addEventListener('beforeunload', function () {
+  saveLS();
+});
 const creatingCards_new = document.querySelectorAll(".creatingCards_new");
 for (let elem of creatingCards_new) {
   elem.addEventListener("click", event => {
