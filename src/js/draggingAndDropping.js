@@ -1,12 +1,12 @@
-import saveLS from "./saveLS";
 import remuveCard from "./remuveCard";
 
+//функция для перемещения карточек
 export default function draggingAndDropping() {
   const tasksListElement = document.querySelectorAll(`.cards`);
 
   tasksListElement.forEach((elem) => {
     const taskElements = elem.querySelectorAll(`.cardItem`);
-    
+
     for (const task of taskElements) {
       task.draggable = true;
     }
@@ -54,6 +54,6 @@ export default function draggingAndDropping() {
       }
       elem.insertBefore(activeElement, nextElement);
     });
-    remuveCard();
+    remuveCard(); //вызов функции для удаления карточек
   });
 }

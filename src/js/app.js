@@ -1,26 +1,24 @@
 import creatingCards from "./creatingCards";
 import saveLS from "./saveLS";
-import draggingAndDropping from "./draggingAndDropping";
+import recordLS from "./recordLS";
 
-window.addEventListener('load', function () {
-  let itemColum1LS = document.querySelector('#colum1')
-  let itemColumS1 = JSON.parse(window.localStorage.getItem('Colum1'));
-  let cardLS = document.createElement('div');
-    cardLS.innerHTML = itemColumS1;
-    itemColum1LS.insertAdjacentHTML('afterBegin', cardLS.innerHTML);
-    draggingAndDropping();   
-})
+//Запускаем запись из локального хранилища после загрузки страницы
+window.addEventListener("load", function () {
+  recordLS();
+});
 
-window.addEventListener('beforeunload', function () {
+//запускаем запись в локальное хранилище при закрытии страницы
+window.addEventListener("beforeunload", function () {
   saveLS();
-})
+});
 
+//записываем в переменную массив из элементов "+ Add another card"
 const creatingCards_new = document.querySelectorAll(".creatingCards_new");
 
+//перебираем элементы "+ Add another card" и ловим событие "click" на них
 for (let elem of creatingCards_new) {
   elem.addEventListener("click", (event) => {
     const element = event.target;
-    new creatingCards(element.id);
+    new creatingCards(element.id); // вызываем класс создания карточек
   });
 }
-
